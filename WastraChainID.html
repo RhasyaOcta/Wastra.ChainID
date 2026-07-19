@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260717-05-8209e4e"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WASTRA-CHAIN ID</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/8650958800d6c92a.element_sdk.js" integrity="sha512-zFMhEG5W24TdVhhc4yw+K4kKrl6mClLz7Nz7OlZcKY64bZTx26LpVI6mwMCarQMzfrHe8i4fBMu4fxoFej2m9g=="></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&amp;family=DM+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bark: '#3E2723',
+        timber: '#5D4037',
+        camel: '#A1887F',
+        sand: '#D7CCC8',
+        cream: '#EFEBE9',
+        parchment: '#FAF7F5',
+        gold: '#C8A96E'
+      }
+    }
+  }
+}
+  </script>
+  <style>
+html, body { height: 100%; margin: 0; }
+* { box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; }
+.font-display { font-family: 'Playfair Display', serif; }
+
+.batik-hero {
+  position: relative;
+  background: linear-gradient(135deg, #3E2723 0%, #5D4037 40%, #4E342E 70%, #3E2723 100%);
+}
+.batik-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C8A96E' stroke-width='0.5' opacity='0.18'%3E%3Ccircle cx='40' cy='40' r='15'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Cpath d='M40 25V5M40 55v20M25 40H5M55 40h20M28 28L14 14M52 28l14-14M28 52L14 66M52 52l14 14'/%3E%3Ccircle cx='10' cy='10' r='4'/%3E%3Ccircle cx='70' cy='10' r='4'/%3E%3Ccircle cx='10' cy='70' r='4'/%3E%3Ccircle cx='70' cy='70' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  z-index: 0;
+}
+.batik-hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(62,39,35,0.1) 0%, rgba(62,39,35,0.6) 100%);
+  z-index: 0;
+}
+.batik-hero > * { position: relative; z-index: 1; }
+
+.batik-border {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='12' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C8A96E' opacity='0.5'%3E%3Ccircle cx='6' cy='6' r='2'/%3E%3Ccircle cx='30' cy='6' r='2'/%3E%3Ccircle cx='54' cy='6' r='2'/%3E%3Cpath d='M8 6h20M32 6h20' stroke='%23C8A96E' stroke-width='0.5' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 12px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideRight { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideLeft { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.1); } 50% { transform: scale(1); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes slideCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.anim-fade-up { opacity: 0; }
+.anim-fade-up.visible { animation: fadeUp 0.8s ease forwards; }
+.anim-slide-right { opacity: 0; }
+.anim-slide-right.visible { animation: slideRight 0.8s ease forwards; }
+.anim-slide-left { opacity: 0; }
+.anim-slide-left.visible { animation: slideLeft 0.8s ease forwards; }
+.anim-scale { opacity: 0; }
+.anim-scale.visible { animation: scaleIn 0.7s ease forwards; }
+
+.delay-1 { animation-delay: 0.1s !important; }
+.delay-2 { animation-delay: 0.2s !important; }
+.delay-3 { animation-delay: 0.3s !important; }
+.delay-4 { animation-delay: 0.4s !important; }
+.delay-5 { animation-delay: 0.5s !important; }
+
+html { scroll-behavior: smooth; }
+
+.member-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.member-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(62,39,35,0.15); }
+
+.cta-btn { transition: all 0.3s ease; position: relative; overflow: hidden; }
+.cta-btn::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.cta-btn:hover::after { transform: translateX(100%); }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(62,39,35,0.3); }
+
+.gallery-img { transition: transform 0.5s ease; }
+.gallery-img:hover { transform: scale(1.03); }
+
+.nav-link { transition: color 0.2s ease; }
+.nav-link:hover { color: #C8A96E; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #FAF7F5; }
+::-webkit-scrollbar-thumb { background: #A1887F; border-radius: 4px; }
+
+.mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+.mobile-menu.open { transform: translateX(0); }
+
+/* SWOT Card Hover */
+.swot-card {
+  animation: slideCard 2s ease-in-out infinite;
+}
+
+/* Carousel */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.carousel-slide {
+  flex: 0 0 100%;
+}
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/e3937a0574eb2d69.data_sdk.js" type="text/javascript" integrity="sha512-xbp/ACqEQy1aDxYMtXTrR3y5MUbzxuggRR/9sD48Gl4VhLMMCiAHsxMaFV6DTdeBpR6ymF+t2zhPKYkWM3+Jfw=="></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto bg-parchment">
+   <!-- Navigation -->
+   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+     <div class="flex items-center justify-between h-16 sm:h-20">
+      <a href="#hero" class="font-display font-bold text-lg sm:text-xl tracking-wider" id="nav-logo" style="color:#C8A96E;">WASTRA-CHAIN ID</a>
+      <div class="hidden md:flex items-center gap-8">
+       <a href="#about" class="nav-link text-sm tracking-wide uppercase font-medium" style="color:#D7CCC8;">About</a> <a href="#research" class="nav-link text-sm tracking-wide uppercase font-medium" style="color:#D7CCC8;">Research</a> <a href="#sustainability" class="nav-link text-sm tracking-wide uppercase font-medium" style="color:#D7CCC8;">Sustainability</a> <a href="#mockup" class="nav-link text-sm tracking-wide uppercase font-medium" style="color:#D7CCC8;">Product</a> <a href="#gallery" class="nav-link text-sm tracking-wide uppercase font-medium" style="color:#D7CCC8;">Gallery</a> <a href="#contact" class="cta-btn px-5 py-2 rounded-full text-sm font-semibold tracking-wide" style="background-color:#C8A96E;color:#3E2723;">Contact Us</a>
+      </div><button id="mobile-toggle" class="md:hidden p-2" onclick="document.getElementById('mobile-nav').classList.toggle('open')"> <i data-lucide="menu" style="color:#D7CCC8;width:24px;height:24px;"></i> </button>
+     </div>
+    </div>
+   </nav><!-- Mobile Menu -->
+   <div id="mobile-nav" class="mobile-menu fixed top-0 right-0 bottom-0 w-64 z-50 shadow-2xl flex flex-col p-8 pt-20" style="background-color:#3E2723;">
+    <button onclick="document.getElementById('mobile-nav').classList.remove('open')" class="absolute top-5 right-5"> <i data-lucide="x" style="color:#D7CCC8;width:24px;height:24px;"></i> </button> <a href="#about" onclick="document.getElementById('mobile-nav').classList.remove('open')" class="py-3 text-base font-medium border-b" style="color:#D7CCC8;border-color:#5D4037;">About</a> <a href="#research" onclick="document.getElementById('mobile-nav').classList.remove('open')" class="py-3 text-base font-medium border-b" style="color:#D7CCC8;border-color:#5D4037;">Research</a> <a href="#sustainability" onclick="document.getElementById('mobile-nav').classList.remove('open')" class="py-3 text-base font-medium border-b" style="color:#D7CCC8;border-color:#5D4037;">Sustainability</a> <a href="#mockup" onclick="document.getElementById('mobile-nav').classList.remove('open')" class="py-3 text-base font-medium border-b" style="color:#D7CCC8;border-color:#5D4037;">Product</a> <a href="#gallery" onclick="document.getElementById('mobile-nav').classList.remove('open')" class="py-3 text-base font-medium border-b" style="color:#D7CCC8;border-color:#5D4037;">Gallery</a> <a href="#contact" onclick="document.getElementById('mobile-nav').classList.remove('open')" class="mt-6 cta-btn px-5 py-3 rounded-full text-sm font-semibold tracking-wide text-center" style="background-color:#C8A96E;color:#3E2723;">Contact Us</a>
+   </div><!-- Hero Section -->
+   <section id="hero" class="batik-hero flex items-center justify-center text-center px-4" style="min-height:100%;">
+    <div class="max-w-4xl mx-auto py-32">
+     <div class="inline-block px-4 py-1.5 rounded-full border text-xs tracking-widest uppercase mb-6" style="border-color:#C8A96E;color:#C8A96E;animation:fadeIn 1s ease forwards;">
+      Blockchain × Batik Heritage
+     </div>
+     <h1 id="hero-title" class="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight mb-6" style="color:#FAF7F5;animation:fadeUp 1s ease 0.2s forwards;opacity:0;">WASTRA-CHAIN ID</h1>
+     <p id="hero-subtitle" class="text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-light tracking-wide" style="color:#D7CCC8;animation:fadeUp 1s ease 0.4s forwards;opacity:0;">THE IMPLEMENTATION OF BLOCKCHAIN TECHNOLOGY IN BOGOR BATIK TO ENHANCE INDONESIAN TEXTILES COMPETITIVENESS IN THE GLOBAL MARKET.</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center" style="animation:fadeUp 1s ease 0.6s forwards;opacity:0;">
+      <a href="#research" class="cta-btn px-8 py-3.5 rounded-full font-semibold text-sm tracking-wider" style="background-color:#C8A96E;color:#3E2723;">Explore Our Research</a> <a href="#about" class="px-8 py-3.5 rounded-full font-semibold text-sm tracking-wider border transition-colors hover:bg-white/5" style="border-color:#C8A96E;color:#C8A96E;">Meet the Team</a>
+     </div>
+     <div class="mt-16" style="animation:fadeIn 2s ease 1s forwards;opacity:0;">
+      <a href="#about"><i data-lucide="chevron-down" class="mx-auto" style="color:#C8A96E;width:28px;height:28px;animation:fadeUp 1.5s ease infinite alternate;"></i></a>
+     </div>
+    </div>
+   </section>
+   <div class="batik-border"></div><!-- About Us Section -->
+   <section id="about" class="py-20 sm:py-28 px-4" style="background-color:#FAF7F5;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16 anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">Who We Are</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#3E2723;">About Us</h2>
+      <div class="w-16 h-0.5 mx-auto" style="background-color:#C8A96E;"></div>
+     </div><!-- Team Members -->
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+      <div class="member-card rounded-2xl p-6 text-center anim-scale delay-1" style="background-color:#EFEBE9;">
+       <div class="w-28 h-28 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden" style="background:linear-gradient(135deg,#5D4037,#C8A96E);">
+        <img src="https://i.ibb.co.com/7tCQ5nMF/foto-shafa.jpg" alt="Shafa Nabil Fashih" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='linear-gradient(135deg, #5D4037, #C8A96E)'; this.style.display='none';">
+       </div>
+       <h3 class="font-display font-bold text-lg mb-1" style="color:#3E2723;">Shafa Nabil Fashih</h3>
+       <p class="text-xs font-medium tracking-wide uppercase mb-2" style="color:#C8A96E;">Lead Researcher</p>
+       <p class="text-sm leading-relaxed mb-3" style="color:#5D4037;">Driving the vision behind WASTRA-CHAIN ID with a passion for cultural preservation and innovation.</p><a href="https://www.instagram.com/abyanshafaa/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase transition-colors hover:text-yellow-700" style="color:#C8A96E;"><i data-lucide="instagram" style="width:14px;height:14px;"></i>abyanshafaa</a>
+      </div>
+      <div class="member-card rounded-2xl p-6 text-center anim-scale delay-2" style="background-color:#EFEBE9;">
+       <div class="w-28 h-28 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden" style="background:linear-gradient(135deg,#5D4037,#C8A96E);">
+        <img src="https://i.ibb.co.com/gZZ2sxm7/foto-rhasya-revisi.png" alt="Rhasya Octavian" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='linear-gradient(135deg, #5D4037, #C8A96E)'; this.style.display='none';">
+       </div>
+       <h3 class="font-display font-bold text-lg mb-1" style="color:#3E2723;">Rhasya Octavian F.S.</h3>
+       <p class="text-xs font-medium tracking-wide uppercase mb-2" style="color:#C8A96E;">Strategy &amp; Research Lead</p>
+       <p class="text-sm leading-relaxed mb-3" style="color:#5D4037;">Developing strategic frameworks and research methodologies for blockchain certification systems.</p><a href="https://www.instagram.com/rhasyacta.oo/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase transition-colors hover:text-yellow-700" style="color:#C8A96E;"><i data-lucide="instagram" style="width:14px;height:14px;"></i>rhasyacta.oo</a>
+      </div>
+      <div class="member-card rounded-2xl p-6 text-center anim-scale delay-3" style="background-color:#EFEBE9;">
+       <div class="w-28 h-28 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden" style="background:linear-gradient(135deg,#5D4037,#C8A96E);">
+        <img src="https://i.ibb.co.com/8g6tLKmD/foto-langit.jpg" alt="Ridho Langit Prakoso" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='linear-gradient(135deg, #5D4037, #C8A96E)'; this.style.display='none';">
+       </div>
+       <h3 class="font-display font-bold text-lg mb-1" style="color:#3E2723;">Ridho Langit Prakoso</h3>
+       <p class="text-xs font-medium tracking-wide uppercase mb-2" style="color:#C8A96E;">Data Analyst</p>
+       <p class="text-sm leading-relaxed mb-3" style="color:#5D4037;">Analysing market trends to position Bogor Batik competitively on the world stage.</p><a href="https://www.instagram.com/ridh0.10/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase transition-colors hover:text-yellow-700" style="color:#C8A96E;"><i data-lucide="instagram" style="width:14px;height:14px;"></i>ridh0.10</a>
+      </div>
+      <div class="member-card rounded-2xl p-6 text-center anim-scale delay-4" style="background-color:#EFEBE9;">
+       <div class="w-28 h-28 mx-auto rounded-full mb-4 flex items-center justify-center overflow-hidden" style="background:linear-gradient(135deg,#5D4037,#C8A96E);">
+        <img src="https://i.ibb.co.com/7tQKJnzt/foto-gibrand.png" alt="Gibrand Shaquille" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='linear-gradient(135deg, #5D4037, #C8A96E)'; this.style.display='none';">
+       </div>
+       <h3 class="font-display font-bold text-lg mb-1" style="color:#3E2723;">Gibrand Shaquille A.</h3>
+       <p class="text-xs font-medium tracking-wide uppercase mb-2" style="color:#C8A96E;">Creative Director</p>
+       <p class="text-sm leading-relaxed mb-3" style="color:#5D4037;">Crafting the visual identity that bridges traditional batik artistry with modern technology.</p><a href="https://www.instagram.com/gibrandshaqlle/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase transition-colors hover:text-yellow-700" style="color:#C8A96E;"><i data-lucide="instagram" style="width:14px;height:14px;"></i>gibrandshaqlle</a>
+      </div>
+     </div><!-- Vision, Mission, Achievements -->
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="rounded-2xl p-8 anim-fade-up delay-1" style="background-color:#3E2723;">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background-color:#C8A96E;">
+         <i data-lucide="eye" style="width:20px;height:20px;color:#3E2723;"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl" style="color:#C8A96E;">Our Vision</h3>
+       </div>
+       <p id="vision-text" class="text-sm leading-relaxed" style="color:#D7CCC8;">To position Bogor Batik as a globally recognised cultural product, empowered by cutting-edge blockchain technology that guarantees authenticity and builds lasting consumer trust.</p>
+      </div>
+      <div class="rounded-2xl p-8 anim-fade-up delay-2" style="background-color:#3E2723;">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background-color:#C8A96E;">
+         <i data-lucide="target" style="width:20px;height:20px;color:#3E2723;"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl" style="color:#C8A96E;">Our Mission</h3>
+       </div>
+       <p id="mission-text" class="text-sm leading-relaxed" style="color:#D7CCC8;">To develop and implement a blockchain-based certification system that records the complete production journey of each Bogor Batik piece, ensuring transparency and protecting artisan heritage.</p>
+      </div>
+      <div class="rounded-2xl p-8 anim-fade-up delay-3" style="background-color:#3E2723;">
+       <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background-color:#C8A96E;">
+         <i data-lucide="award" style="width:20px;height:20px;color:#3E2723;"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl" style="color:#C8A96E;">Achievements</h3>
+       </div>
+       <ul class="text-sm leading-relaxed space-y-2" style="color:#D7CCC8;">
+        <li class="flex items-start gap-2"><i data-lucide="check-circle" style="width:16px;height:16px;color:#C8A96E;flex-shrink:0;margin-top:2px;"></i>National participant of NICYMS Gold-Medal by IYSA</li>
+        <li class="flex items-start gap-2"><i data-lucide="check-circle" style="width:16px;height:16px;color:#C8A96E;flex-shrink:0;margin-top:2px;"></i>Special Awards of Team in NICYMS by IYSA</li>
+        <li class="flex items-start gap-2"><i data-lucide="check-circle" style="width:16px;height:16px;color:#C8A96E;flex-shrink:0;margin-top:2px;"></i>International participant of ISIF Gold-Medal by IYSA</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="batik-border"></div><!-- WASTRA-CHAIN ID Research Section -->
+   <section id="research" class="py-20 sm:py-28 px-4" style="background-color:#EFEBE9;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16 anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">Our Research</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#3E2723;">WASTRA-CHAIN ID</h2>
+      <div class="w-16 h-0.5 mx-auto" style="background-color:#C8A96E;"></div>
+     </div><!-- Team Photo -->
+     <div class="rounded-2xl overflow-hidden mb-12 anim-scale" style="max-width:800px;margin-left:auto;margin-right:auto;">
+      <img src="https://i.ibb.co.com/8nZgtLgq/foto-ber4.jpg" alt="WASTRA-CHAIN ID Research Team" loading="lazy" class="w-full h-auto object-cover" onerror="this.style.background='linear-gradient(135deg, #5D4037, #3E2723)'; this.style.display='none';">
+     </div><!-- Research Description -->
+     <div class="max-w-3xl mx-auto space-y-6 anim-fade-up">
+      <p class="text-base leading-relaxed" style="color:#5D4037;">Bogor Batik is a valuable cultural heritage, still crafted using traditional techniques such as the canting. However, in the global market, it faces a major challenge: declining trust in authenticity due to counterfeit products and weak traceability systems.</p>
+      <p class="text-base leading-relaxed" style="color:#5D4037;">Today's international consumers demand more than just products—they expect transparency in production processes, material authenticity, and environmental impact. Without innovation, Bogor Batik risks being overshadowed by mass-produced imitations.</p>
+      <p class="text-base leading-relaxed" style="color:#5D4037;">To address this issue, WASTRA-CHAIN ID offers a blockchain-based certification system that assigns a secure digital identity to each piece of batik, recording its entire production history.</p>
+     </div><!-- Sources and Collaborators -->
+     <div class="mt-16 pt-12 border-t anim-fade-up" style="border-color:#D7CCC8;">
+      <h4 class="font-display font-bold text-2xl mb-8" style="color:#3E2723;">Sources &amp; Collaborators</h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
+       <div class="rounded-xl overflow-hidden anim-slide-right" style="background:linear-gradient(135deg,#5D4037,#A1887F);">
+        <img src="https://i.ibb.co.com/cS72fTHY/Whats-App-Image-2026-04-18-at-18-36-20.jpg" alt="Handayani Geulis" loading="lazy" class="w-full h-auto object-cover" style="aspect-ratio:1;" onerror="this.style.background='linear-gradient(135deg, #5D4037, #A1887F)'; this.style.display='none';">
+       </div>
+       <div class="anim-slide-left">
+        <h5 class="font-display font-bold text-xl mb-2" style="color:#3E2723;">Handayani Geulis</h5>
+        <p class="text-xs font-medium tracking-wide uppercase mb-4" style="color:#C8A96E;">Batik Gallery &amp; Cultural Center</p>
+        <p class="text-sm leading-relaxed mb-4" style="color:#5D4037;">Handayani Geulis is a batik gallery and cultural preservation center in Bogor, established in 2011. It is known for developing distinctive Batik Bogor motifs inspired by local symbols, and serves as an educational center dedicated to preserving batik heritage.</p><a href="https://maps.app.goo.gl/jyD6UrRaNUczUuGc8" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider uppercase transition-colors hover:text-yellow-700" style="color:#C8A96E;"><i data-lucide="map-pin" style="width:14px;height:14px;"></i>View Location</a>
+       </div>
+      </div><!-- YouTube Video Section -->
+      <div class="mt-20 pt-12 border-t anim-scale" style="border-color:#D7CCC8;">
+       <h4 class="font-display font-bold text-2xl mb-8" style="color:#3E2723;">Video Documentation</h4>
+       <div class="rounded-2xl overflow-hidden" style="background:linear-gradient(135deg,#3E2723,#5D4037);max-width:700px;margin:0 auto;">
+        <a href="https://www.youtube.com/watch?v=If4qhpSAz28" target="_blank" rel="noopener noreferrer" class="relative block group cursor-pointer">
+         <div class="relative overflow-hidden" style="background:#000;aspect-ratio:16/9;">
+          <img src="https://img.youtube.com/vi/If4qhpSAz28/maxresdefault.jpg" alt="WASTRA-CHAIN ID Documentary" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="console.error('Image failed to load:', this.src); this.style.background='#3E2723'; this.style.display='none';">
+          <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors duration-300">
+           <div class="w-16 h-16 rounded-full flex items-center justify-center animate-pulse" style="background-color:#C8A96E;">
+            <i data-lucide="play" style="width:32px;height:32px;color:#3E2723;margin-left:2px;"></i>
+           </div>
+          </div>
+         </div>
+         <div class="p-6" style="background-color:#3E2723;">
+          <p class="text-sm font-semibold" style="color:#FAF7F5;">WASTRA-CHAIN ID Documentary</p>
+          <p class="text-xs mt-2" style="color:#D7CCC8;">Watch our research and journey on YouTube →</p>
+         </div></a>
+       </div>
+      </div>
+     </div><!-- Key Features -->
+     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-14">
+      <div class="text-center p-6 rounded-xl anim-fade-up delay-1" style="background-color:#FAF7F5;">
+       <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style="background-color:#3E2723;">
+        <i data-lucide="shield-check" style="width:24px;height:24px;color:#C8A96E;"></i>
+       </div>
+       <h4 class="font-display font-bold mb-2" style="color:#3E2723;">Authenticity</h4>
+       <p class="text-sm" style="color:#5D4037;">Immutable blockchain records verify origin and craftsmanship of every batik piece.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl anim-fade-up delay-2" style="background-color:#FAF7F5;">
+       <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style="background-color:#3E2723;">
+        <i data-lucide="scan-line" style="width:24px;height:24px;color:#C8A96E;"></i>
+       </div>
+       <h4 class="font-display font-bold mb-2" style="color:#3E2723;">Traceability</h4>
+       <p class="text-sm" style="color:#5D4037;">Full production history from raw materials through artisans to market.</p>
+      </div>
+      <div class="text-center p-6 rounded-xl anim-fade-up delay-3" style="background-color:#FAF7F5;">
+       <div class="w-14 h-14 mx-auto rounded-full flex items-center justify-center mb-4" style="background-color:#3E2723;">
+        <i data-lucide="globe" style="width:24px;height:24px;color:#C8A96E;"></i>
+       </div>
+       <h4 class="font-display font-bold mb-2" style="color:#3E2723;">Global Trust</h4>
+       <p class="text-sm" style="color:#5D4037;">Building consumer confidence through transparent digital certification.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="batik-border"></div><!-- The Problem & Solution Section -->
+   <section id="problem-solution" class="py-20 sm:py-28 px-4" style="background-color:#3E2723;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16 anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">The Challenge</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#FAF7F5;">The Problem &amp; Our Solution</h2>
+      <div class="w-16 h-0.5 mx-auto" style="background-color:#C8A96E;"></div>
+     </div><!-- Problem Section -->
+     <div class="mb-20">
+      <div class="rounded-2xl p-8 md:p-12 mb-8 anim-fade-up" style="background:linear-gradient(135deg,#5D4037,#3E2723);border-left:4px solid #C8A96E;">
+       <div class="flex items-start gap-4 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#C8A96E;">
+         <i data-lucide="alert-circle" style="width:20px;height:20px;color:#3E2723;"></i>
+        </div>
+        <h3 class="font-display font-bold text-2xl" style="color:#FAF7F5;">The Authenticity Crisis</h3>
+       </div>
+       <p class="text-sm leading-relaxed mb-6" style="color:#D7CCC8;">Bogor Batik artisans face a critical market challenge: <strong>weak systems for verifying authenticity</strong>. International buyers actively avoid "gray-market" products with uncertain origins, and traditional paper-based certifications are easily forged.</p>
+       <p class="text-sm leading-relaxed" style="color:#D7CCC8;">Without robust traceability, Bogor Batik is often mistaken for factory-made printed textiles, causing market value to plummet and threatening centuries of cultural heritage.</p>
+      </div>
+     </div><!-- Solution Section -->
+     <div class="mb-20">
+      <div class="rounded-2xl p-8 md:p-12 mb-8 anim-fade-up delay-2" style="background:linear-gradient(135deg,#C8A96E,#A1887F);border-left:4px solid #FAF7F5;">
+       <div class="flex items-start gap-4 mb-4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#3E2723;">
+         <i data-lucide="shield-check" style="width:20px;height:20px;color:#C8A96E;"></i>
+        </div>
+        <h3 class="font-display font-bold text-2xl" style="color:#3E2723;">Blockchain-Powered Authenticity</h3>
+       </div>
+       <p class="text-sm leading-relaxed mb-6" style="color:#3E2723;"><strong>WASTRA-CHAIN ID</strong> uses blockchain technology to create immutable, unalterable digital records of every batik piece. By scanning a QR code, overseas buyers see a complete digital "trace" proving authenticity, artisan identity, materials used, and production timeline.</p>
+      </div>
+     </div><!-- SWOT Analysis Interactive -->
+     <div class="anim-fade-up delay-5">
+      <h3 class="font-display font-bold text-2xl mb-8 text-center" style="color:#FAF7F5;">Strategic Analysis</h3>
+      <p class="text-xs text-center mb-8" style="color:#D7CCC8;">💡 Click on any box to expand</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+       <!-- Strengths -->
+       <div class="swot-card rounded-xl p-6 cursor-pointer transition-all duration-300" style="background:linear-gradient(135deg,#5D4037,#3E2723);border-top:3px solid #C8A96E;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 24px rgba(200,169,110,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onclick="toggleSwot(this)">
+        <div class="flex items-center gap-2 mb-4">
+         <i data-lucide="trending-up" style="width:20px;height:20px;color:#C8A96E;"></i>
+         <h4 class="font-display font-bold" style="color:#C8A96E;">Strengths</h4><i data-lucide="chevron-down" class="swot-toggle ml-auto" style="width:18px;height:18px;color:#C8A96E;transition:transform 0.3s;"></i>
+        </div>
+        <ul class="swot-content space-y-2 text-xs max-h-0 overflow-hidden transition-all duration-300" style="color:#D7CCC8;">
+         <li class="flex gap-2"><span style="color:#C8A96E;">•</span> State-of-the-art data security</li>
+         <li class="flex gap-2"><span style="color:#C8A96E;">•</span> Increased resale value (premium pricing)</li>
+         <li class="flex gap-2"><span style="color:#C8A96E;">•</span> Copyright protection for artisans</li>
+        </ul>
+       </div><!-- Weaknesses -->
+       <div class="swot-card rounded-xl p-6 cursor-pointer transition-all duration-300" style="background:linear-gradient(135deg,#5D4037,#3E2723);border-top:3px solid #D7CCC8;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 24px rgba(215,204,200,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onclick="toggleSwot(this)">
+        <div class="flex items-center gap-2 mb-4">
+         <i data-lucide="alert-triangle" style="width:20px;height:20px;color:#D7CCC8;"></i>
+         <h4 class="font-display font-bold" style="color:#D7CCC8;">Weaknesses</h4><i data-lucide="chevron-down" class="swot-toggle ml-auto" style="width:18px;height:18px;color:#D7CCC8;transition:transform 0.3s;"></i>
+        </div>
+        <ul class="swot-content space-y-2 text-xs max-h-0 overflow-hidden transition-all duration-300" style="color:#D7CCC8;">
+         <li class="flex gap-2"><span>•</span> Need for technology education among elderly artisans</li>
+         <li class="flex gap-2"><span>•</span> Initial implementation learning curve</li>
+        </ul>
+       </div><!-- Opportunities -->
+       <div class="swot-card rounded-xl p-6 cursor-pointer transition-all duration-300" style="background:linear-gradient(135deg,#5D4037,#3E2723);border-top:3px solid #A1887F;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 24px rgba(161,136,127,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onclick="toggleSwot(this)">
+        <div class="flex items-center gap-2 mb-4">
+         <i data-lucide="zap" style="width:20px;height:20px;color:#A1887F;"></i>
+         <h4 class="font-display font-bold" style="color:#A1887F;">Opportunities</h4><i data-lucide="chevron-down" class="swot-toggle ml-auto" style="width:18px;height:18px;color:#A1887F;transition:transform 0.3s;"></i>
+        </div>
+        <ul class="swot-content space-y-2 text-xs max-h-0 overflow-hidden transition-all duration-300" style="color:#D7CCC8;">
+         <li class="flex gap-2"><span style="color:#A1887F;">•</span> Become new standard for craft certification in West Java</li>
+         <li class="flex gap-2"><span style="color:#A1887F;">•</span> Scale nationally and internationally</li>
+        </ul>
+       </div><!-- Threats -->
+       <div class="swot-card rounded-xl p-6 cursor-pointer transition-all duration-300" style="background:linear-gradient(135deg,#5D4037,#3E2723);border-top:3px solid #C8A96E;" onmouseover="this.style.transform='translateY(-8px)';this.style.boxShadow='0 12px 24px rgba(200,169,110,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'" onclick="toggleSwot(this)">
+        <div class="flex items-center gap-2 mb-4">
+         <i data-lucide="shield-alert" style="width:20px;height:20px;color:#C8A96E;"></i>
+         <h4 class="font-display font-bold" style="color:#C8A96E;">Threats</h4><i data-lucide="chevron-down" class="swot-toggle ml-auto" style="width:18px;height:18px;color:#C8A96E;transition:transform 0.3s;"></i>
+        </div>
+        <ul class="swot-content space-y-2 text-xs max-h-0 overflow-hidden transition-all duration-300" style="color:#D7CCC8;">
+         <li class="flex gap-2"><span style="color:#C8A96E;">•</span> Internet access speeds in remote artisan areas</li>
+         <li class="flex gap-2"><span style="color:#C8A96E;">•</span> Market adoption resistance from traditional practitioners</li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="batik-border"></div><!-- Environmental Sustainability Section -->
+   <section id="sustainability" class="py-20 sm:py-28 px-4" style="background-color:#EFEBE9;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16 anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">Eco-Conscious Innovation</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#3E2723;">Environmental Sustainability</h2>
+      <div class="w-16 h-0.5 mx-auto" style="background-color:#C8A96E;"></div>
+     </div>
+     <div class="rounded-2xl p-8 md:p-12 mb-12 anim-fade-up" style="background:linear-gradient(135deg,#5D4037,#3E2723);border-left:4px solid #C8A96E;">
+      <h3 class="font-display font-bold text-2xl mb-6" style="color:#FAF7F5;">Eco-Friendly Traceability Guarantee</h3>
+      <p class="text-sm leading-relaxed mb-6" style="color:#D7CCC8;">WASTRA-CHAIN ID certifies that each batik piece uses natural dyes and sustainably sourced materials—a major competitive advantage in European markets where eco-conscious consumers demand transparency and ethical production.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+       <div class="rounded-xl p-6 anim-scale delay-1" style="background-color:#3E2723;">
+        <div class="flex items-center gap-3 mb-3"><i data-lucide="leaf" style="width:24px;height:24px;color:#C8A96E;"></i>
+         <h4 class="font-display font-bold" style="color:#C8A96E;">Natural Dyes</h4>
+        </div>
+        <p class="text-xs leading-relaxed" style="color:#D7CCC8;">Plant and mineral-based dyes, zero synthetic chemicals. Safe for artisans and ecosystems.</p>
+       </div>
+       <div class="rounded-xl p-6 anim-scale delay-2" style="background-color:#3E2723;">
+        <div class="flex items-center gap-3 mb-3"><i data-lucide="sprout" style="width:24px;height:24px;color:#C8A96E;"></i>
+         <h4 class="font-display font-bold" style="color:#C8A96E;">Sustainable Sourcing</h4>
+        </div>
+        <p class="text-xs leading-relaxed" style="color:#D7CCC8;">Verified yarn and materials from responsible farming practices with full environmental stewardship.</p>
+       </div>
+       <div class="rounded-xl p-6 anim-scale delay-3" style="background-color:#3E2723;">
+        <div class="flex items-center gap-3 mb-3"><i data-lucide="globe-2" style="width:24px;height:24px;color:#C8A96E;"></i>
+         <h4 class="font-display font-bold" style="color:#C8A96E;">Global Trust</h4>
+        </div>
+        <p class="text-xs leading-relaxed" style="color:#D7CCC8;">Transparent documentation builds consumer confidence and unlocks premium pricing in international markets.</p>
+       </div>
+      </div>
+     </div><!-- SDG Alignment -->
+     <div class="anim-fade-up">
+      <h3 class="font-display font-bold text-2xl mb-8 text-center" style="color:#3E2723;">Alignment with UN 2030 SDGs</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+       <div class="rounded-2xl p-8 anim-fade-up delay-1" style="background:linear-gradient(135deg,#3E2723,#5D4037);border-top:4px solid #C8A96E;">
+        <div class="flex items-center gap-3 mb-4">
+         <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#C8A96E;">
+          <span class="font-bold text-xs" style="color:#3E2723;">8</span>
+         </div>
+         <h4 class="font-display font-bold" style="color:#C8A96E;">SDG 8: Decent Work</h4>
+        </div>
+        <p class="text-xs leading-relaxed" style="color:#D7CCC8;"><strong>Economic Growth &amp; Income Protection:</strong> Certified authentic batik commands higher market value, directly increasing income for Bogor artisans.</p>
+       </div>
+       <div class="rounded-2xl p-8 anim-fade-up delay-2" style="background:linear-gradient(135deg,#3E2723,#5D4037);border-top:4px solid #A1887F;">
+        <div class="flex items-center gap-3 mb-4">
+         <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#A1887F;">
+          <span class="font-bold text-xs" style="color:#3E2723;">9</span>
+         </div>
+         <h4 class="font-display font-bold" style="color:#A1887F;">SDG 9: Industry &amp; Innovation</h4>
+        </div>
+        <p class="text-xs leading-relaxed" style="color:#D7CCC8;"><strong>Digital Infrastructure Advancement:</strong> Blockchain technology brings microenterprises into the digital age, strengthening Indonesia's creative sector.</p>
+       </div>
+       <div class="rounded-2xl p-8 anim-fade-up delay-3" style="background:linear-gradient(135deg,#3E2723,#5D4037);border-top:4px solid #D7CCC8;">
+        <div class="flex items-center gap-3 mb-4">
+         <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#D7CCC8;">
+          <span class="font-bold text-xs" style="color:#3E2723;">12</span>
+         </div>
+         <h4 class="font-display font-bold" style="color:#D7CCC8;">SDG 12: Responsible Consumption</h4>
+        </div>
+        <p class="text-xs leading-relaxed" style="color:#D7CCC8;"><strong>Transparency &amp; Sustainability:</strong> Complete traceability empowers consumers to make informed, responsible choices aligned with sustainable fashion.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Mobile App Mockup Section -->
+   <section id="mockup" class="py-20 sm:py-28 px-4" style="background-color:#3E2723;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16 anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">User Experience</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#FAF7F5;">Mobile App Interface</h2>
+      <div class="w-16 h-0.5 mx-auto" style="background-color:#C8A96E;"></div>
+     </div><!-- Interactive Tab Section -->
+     <div class="mt-12 anim-fade-up">
+      <h3 class="font-display font-bold text-2xl mb-8 text-center" style="color:#FAF7F5;">The User Journey</h3>
+      <p class="text-xs text-center mb-6" style="color:#D7CCC8;">👆 Click tabs to explore different stages</p>
+      <div class="relative max-w-4xl mx-auto"><!-- Tab Navigation -->
+       <div class="flex flex-wrap justify-center gap-2 mb-8"><button onclick="switchAppScreen(0)" class="app-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all" style="background-color:#C8A96E;color:#3E2723;border:2px solid #C8A96E;" id="tab-0">Artisan Input</button> <button onclick="switchAppScreen(1)" class="app-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all" style="background-color:transparent;color:#D7CCC8;border:2px solid #D7CCC8;" id="tab-1">Blockchain</button> <button onclick="switchAppScreen(2)" class="app-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all" style="background-color:transparent;color:#D7CCC8;border:2px solid #D7CCC8;" id="tab-2">Consumer Scan</button> <button onclick="switchAppScreen(3)" class="app-tab px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all" style="background-color:transparent;color:#D7CCC8;border:2px solid #D7CCC8;" id="tab-3">Story Transfer</button>
+       </div><!-- Phone Mockup Container -->
+       <div class="relative mx-auto anim-scale delay-2" style="max-width:320px;background:linear-gradient(135deg,#5D4037,#3E2723);border-radius:2.5rem;padding:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <div style="background-color:#000;border-radius:2rem;overflow:hidden;aspect-ratio:9/16;"><!-- Status Bar -->
+         <div class="flex items-center justify-between px-4 py-2" style="background-color:#3E2723;color:#FAF7F5;font-size:11px;"><span>9:41</span>
+          <div class="flex gap-1"><i data-lucide="signal" style="width:12px;height:12px;"></i> <i data-lucide="battery" style="width:12px;height:12px;"></i>
+          </div>
+         </div><!-- Screen Content -->
+         <div style="background-color:#FAF7F5;height:calc(100% - 28px);overflow-y:auto;padding:12px;"><!-- Screen 0: Artisan Input -->
+          <div class="app-screen" style="display:block;">
+           <div style="text-align:center;margin-bottom:12px;">
+            <p style="color:#C8A96E;font-size:10px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">Artisan Input</p>
+            <p style="color:#3E2723;font-weight:700;font-size:13px;margin:4px 0 0 0;">Sanggar Batik Rain</p>
+           </div>
+           <div class="rounded-lg overflow-hidden mb-3" style="aspect-ratio:1;background:linear-gradient(135deg,#5D4037,#C8A96E);"><img src="https://i.ibb.co.com/8nZgtLgq/foto-ber4.jpg" alt="Artisan" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='linear-gradient(135deg, #5D4037, #C8A96E)'; this.style.display='none';">
+           </div>
+           <div style="background-color:#EFEBE9;padding:10px;border-radius:8px;margin-bottom:10px;border-left:3px solid #C8A96E;">
+            <p style="font-size:9px;color:#5D4037;margin:0 0 2px 0;font-weight:700;">ARTISAN DETAILS</p>
+            <p style="font-size:8px;color:#3E2723;margin:0;line-height:1.5;"><strong>Name:</strong> Ibu Isah<br><strong>Studio:</strong> Sanggar Batik Rain<br><strong>Experience:</strong> 25 years<br><strong>Speciality:</strong> Kujang Motif</p>
+           </div><button style="width:100%;background-color:#2196F3;color:white;border:none;border-radius:6px;padding:8px;font-size:10px;font-weight:700;cursor:pointer;">SUBMIT BATIK DATA</button>
+          </div><!-- Screen 1: Blockchain Verification -->
+          <div class="app-screen" style="display:none;">
+           <div style="text-align:center;margin-bottom:12px;">
+            <p style="color:#C8A96E;font-size:10px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">Blockchain</p>
+            <p style="color:#3E2723;font-weight:700;font-size:12px;margin:4px 0 0 0;">Verification</p>
+           </div>
+           <div style="background:linear-gradient(135deg,#E3F2FD,#BBDEFB);padding:10px;border-radius:8px;margin-bottom:10px;text-align:center;border:2px solid #2196F3;"><i data-lucide="shield-check" style="width:28px;height:28px;color:#2196F3;margin:0 auto 4px;display:block;"></i>
+            <p style="font-size:9px;color:#1565C0;margin:0;font-weight:700;">TOKEN GENERATED</p>
+            <p style="font-size:8px;color:#1976D2;margin:4px 0 0 0;word-break:break-all;">0xA7F2c3E9B...</p>
+           </div>
+           <div style="background-color:#EFEBE9;padding:10px;border-radius:8px;margin-bottom:10px;">
+            <p style="font-size:9px;color:#5D4037;margin:0 0 6px 0;font-weight:700;">BLOCKCHAIN DATA</p>
+            <div style="font-size:8px;color:#3E2723;line-height:1.6;">
+             <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #D7CCC8;"><span><strong>Status:</strong></span> <span style="color:#4CAF50;font-weight:700;">VERIFIED ✓</span>
+             </div>
+             <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #D7CCC8;"><span><strong>Hash:</strong></span> <span style="font-family:monospace;font-size:7px;">ab7d2...</span>
+             </div>
+             <div style="display:flex;justify-content:space-between;padding:4px 0;"><span><strong>Timestamp:</strong></span> <span>15 Dec 2024</span>
+             </div>
+            </div>
+           </div><button style="width:100%;background-color:#4CAF50;color:white;border:none;border-radius:6px;padding:8px;font-size:10px;font-weight:700;cursor:pointer;">CONFIRM TOKENIZATION</button>
+          </div><!-- Screen 2: Consumer Scan -->
+          <div class="app-screen" style="display:none;">
+           <div style="text-align:center;margin-bottom:12px;">
+            <p style="color:#C8A96E;font-size:10px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">Consumer Scan</p>
+            <p style="color:#3E2723;font-weight:700;font-size:12px;margin:4px 0 0 0;">QR Code Verified</p>
+           </div>
+           <div class="rounded-lg overflow-hidden mb-3" style="aspect-ratio:1;background:linear-gradient(135deg,#5D4037,#C8A96E);"><img src="https://i.ibb.co.com/8nZgtLgq/foto-ber4.jpg" alt="Product" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.background='linear-gradient(135deg, #5D4037, #C8A96E)'; this.style.display='none';">
+           </div>
+           <div style="background:linear-gradient(135deg,#E8F5E9,#C8E6C9);padding:10px;border-radius:8px;margin-bottom:10px;border-left:3px solid #4CAF50;text-align:center;">
+            <p style="font-size:9px;color:#2E7D32;margin:0 0 2px 0;font-weight:700;">✓ AUTHENTICITY VERIFIED</p>
+            <p style="font-size:8px;color:#388E3C;margin:0;">Secured on Blockchain</p>
+           </div>
+           <div style="background-color:#EFEBE9;padding:10px;border-radius:8px;margin-bottom:10px;">
+            <p style="font-size:9px;color:#5D4037;margin:0 0 6px 0;font-weight:700;">PRODUCT INFO</p>
+            <p style="font-size:8px;color:#3E2723;margin:0;line-height:1.5;"><strong>Motif:</strong> Kujang Angkot<br><strong>Dye:</strong> Natural, Plant-based<br><strong>Date:</strong> 15 Dec 2024</p>
+           </div><button style="width:100%;background-color:#4CAF50;color:white;border:none;border-radius:6px;padding:8px;font-size:10px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;"> <i data-lucide="heart" style="width:12px;height:12px;"></i> BUY WITH CONFIDENCE </button>
+          </div><!-- Screen 3: Story Transfer -->
+          <div class="app-screen" style="display:none;">
+           <div style="text-align:center;margin-bottom:12px;">
+            <p style="color:#C8A96E;font-size:10px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">Story Transfer</p>
+            <p style="color:#3E2723;font-weight:700;font-size:12px;margin:4px 0 0 0;">Digital Certificate</p>
+           </div>
+           <div style="background:linear-gradient(135deg,#FFF3E0,#FFE0B2);padding:10px;border-radius:8px;margin-bottom:10px;border-left:3px solid #FF9800;">
+            <p style="font-size:9px;color:#E65100;margin:0 0 4px 0;font-weight:700;">THE ARTISAN'S STORY</p>
+            <p style="font-size:8px;color:#BF360C;margin:0;line-height:1.4;">"Each pattern carries the spirit of Bogor. This batik took 3 weeks to create, using natural indigo from local farmers. Every stroke connects to our ancestors' legacy."</p>
+           </div>
+           <div style="background-color:#EFEBE9;padding:10px;border-radius:8px;margin-bottom:10px;">
+            <p style="font-size:9px;color:#5D4037;margin:0 0 6px 0;font-weight:700;">YOUR OPTIONS</p><button style="width:100%;background-color:#3E2723;color:#C8A96E;border:none;border-radius:6px;padding:6px;font-size:8px;font-weight:700;cursor:pointer;margin-bottom:4px;">SHARE ON SOCIAL</button> <button style="width:100%;background-color:#3E2723;color:#C8A96E;border:none;border-radius:6px;padding:6px;font-size:8px;font-weight:700;cursor:pointer;">ADD TO COLLECTION</button>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="batik-border"></div><!-- Gallery Section -->
+   <section id="gallery" class="py-20 sm:py-28 px-4" style="background-color:#FAF7F5;">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16 anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">Batik Bogor Heritage</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#3E2723;">Gallery</h2>
+      <div class="w-16 h-0.5 mx-auto" style="background-color:#C8A96E;"></div>
+     </div><!-- Gallery Item 1 -->
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
+      <div class="rounded-2xl overflow-hidden anim-slide-right" style="background:linear-gradient(135deg,#5D4037,#A1887F);">
+       <div class="gallery-img flex items-center justify-center" style="min-height:320px;background:#3E2723;"><img src="https://i.ibb.co.com/8DwQ9x1b/Batik-Kujang-Angkot-2.webp" alt="Batik Kujang" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='#5D4037'; this.style.display='none';">
+       </div>
+       <p class="text-xs text-center mt-3" style="color:#D7CCC8;">Batik Kujang</p>
+      </div>
+      <div class="anim-slide-left">
+       <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">01</span>
+       <h3 class="font-display font-bold text-2xl sm:text-3xl mt-2 mb-4" style="color:#3E2723;">Batik Kujang</h3>
+       <p class="text-sm leading-relaxed mb-4" style="color:#5D4037;">The Kujang motif is the most iconic symbol of Bogor Batik, inspired by the traditional Sundanese weapon that represents strength, protection, and cultural pride. Each stroke preserves centuries of heritage, hand-drawn using the canting technique passed down through generations of artisans.</p>
+       <div class="flex items-center gap-2" style="color:#C8A96E;">
+        <i data-lucide="arrow-right" style="width:16px;height:16px;"></i> <span class="text-xs tracking-wider uppercase font-semibold">Signature Motif</span>
+       </div>
+      </div>
+     </div><!-- Gallery Item 2 -->
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16">
+      <div class="anim-slide-right">
+       <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">02</span>
+       <h3 class="font-display font-bold text-2xl sm:text-3xl mt-2 mb-4" style="color:#3E2723;">Batik Katulampa</h3>
+       <p class="text-sm leading-relaxed mb-4" style="color:#5D4037;">Named after the iconic Katulampa waterfall in Bogor, this motif captures the region's natural beauty and its powerful connection to water. The flowing patterns symbolise resilience, purity, and the constant flow of tradition alongside modern progress.</p>
+       <div class="flex items-center gap-2" style="color:#C8A96E;">
+        <i data-lucide="arrow-right" style="width:16px;height:16px;"></i> <span class="text-xs tracking-wider uppercase font-semibold">Waterfall Inspired</span>
+       </div>
+      </div>
+      <div class="rounded-2xl overflow-hidden anim-slide-left" style="background:linear-gradient(135deg,#A1887F,#5D4037);">
+       <div class="gallery-img flex items-center justify-center" style="min-height:320px;background:#3E2723;"><img src="https://i.ibb.co.com/twHdXwPn/Batik-Katulampa.webp" alt="Batik Katulampa" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='#5D4037'; this.style.display='none';">
+       </div>
+       <p class="text-xs text-center mt-3" style="color:#D7CCC8;">Batik Katulampa</p>
+      </div>
+     </div><!-- Gallery Item 3 -->
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="rounded-2xl overflow-hidden anim-slide-right" style="background:linear-gradient(135deg,#3E2723,#A1887F);">
+       <div class="gallery-img flex items-center justify-center" style="min-height:320px;background:#3E2723;"><img src="https://i.ibb.co.com/1tPSxHyM/Batik-Kijang-Papasangan-2.webp" alt="Batik Kijang Papasangan" loading="lazy" class="w-full h-full object-cover" onerror="this.style.background='#5D4037'; this.style.display='none';">
+       </div>
+       <p class="text-xs text-center mt-3" style="color:#D7CCC8;">Batik Kijang Papasangan</p>
+      </div>
+      <div class="anim-slide-left">
+       <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">03</span>
+       <h3 class="font-display font-bold text-2xl sm:text-3xl mt-2 mb-4" style="color:#3E2723;">Batik Kijang Papasangan</h3>
+       <p class="text-sm leading-relaxed mb-4" style="color:#5D4037;">The Kijang (Deer) Papasangan motif embodies harmony and grace, representing the elegant deer that inhabits Bogor's forests. This design symbolises balance between nature and culture, depicting a pair in perfect union—a metaphor for the complementary relationship between tradition and progress.</p>
+       <div class="flex items-center gap-2" style="color:#C8A96E;">
+        <i data-lucide="arrow-right" style="width:16px;height:16px;"></i> <span class="text-xs tracking-wider uppercase font-semibold">Symbol of Harmony</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="batik-border"></div><!-- Contact Section -->
+   <section id="contact" class="py-20 sm:py-28 px-4" style="background-color:#3E2723;">
+    <div class="max-w-4xl mx-auto text-center">
+     <div class="anim-fade-up">
+      <span class="text-xs tracking-widest uppercase font-semibold" style="color:#C8A96E;">Reach Out</span>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl mt-3 mb-4" style="color:#FAF7F5;">Contact Information</h2>
+      <div class="w-16 h-0.5 mx-auto mb-8" style="background-color:#C8A96E;"></div>
+      <p class="text-base mb-10 max-w-xl mx-auto" style="color:#D7CCC8;">Interested in our research or wish to collaborate? We would love to hear from you.</p>
+     </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
+      <div class="rounded-xl p-6 anim-fade-up delay-1" style="background-color:#5D4037;">
+       <div class="w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-3" style="background-color:#C8A96E;">
+        <i data-lucide="map-pin" style="width:20px;height:20px;color:#3E2723;"></i>
+       </div>
+       <h4 class="font-display font-semibold mb-1" style="color:#FAF7F5;">School Address</h4>
+       <p id="school-address" class="text-xs leading-relaxed" style="color:#D7CCC8;">SMA IBNU HAJAR BOARDING SCHOOL</p>
+      </div>
+      <div class="rounded-xl p-6 anim-fade-up delay-2" style="background-color:#5D4037;">
+       <div class="w-12 h-12 mx-auto rounded-full flex items-center justify-center mb-3" style="background-color:#C8A96E;">
+        <i data-lucide="mail" style="width:20px;height:20px;color:#3E2723;"></i>
+       </div>
+       <h4 class="font-display font-semibold mb-1" style="color:#FAF7F5;">Email</h4>
+       <p id="contact-email" class="text-xs leading-relaxed" style="color:#D7CCC8;">4the.winsofficial@gmail.com</p>
+      </div>
+     </div><a href="#hero" class="cta-btn inline-block px-10 py-4 rounded-full font-semibold text-sm tracking-wider anim-fade-up delay-4" style="background-color:#C8A96E;color:#3E2723;">Back to Top</a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-8 px-4 text-center" style="background-color:#2E1B15;">
+    <p class="text-xs tracking-wide" style="color:#A1887F;">© 2025 WASTRA-CHAIN ID. All rights reserved. Preserving heritage through innovation.</p>
+   </footer>
+  </div>
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.anim-fade-up,.anim-slide-right,.anim-slide-left,.anim-scale').forEach(el => observer.observe(el));
+
+    // Nav background on scroll
+    const nav = document.getElementById('main-nav');
+    const wrapper = document.getElementById('app-wrapper');
+    wrapper.addEventListener('scroll', () => {
+      if (wrapper.scrollTop > 60) {
+        nav.style.background = 'rgba(62,39,35,0.95)';
+        nav.style.backdropFilter = 'blur(10px)';
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // SWOT Toggle
+    function toggleSwot(element) {
+      const content = element.querySelector('.swot-content');
+      const toggle = element.querySelector('.swot-toggle');
+      const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight;
+      
+      if (isOpen) {
+        content.style.maxHeight = '0px';
+        toggle.style.transform = 'rotate(0deg)';
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        toggle.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // App Screen Tabs
+    let currentAppScreen = 0;
+
+    function switchAppScreen(index) {
+      currentAppScreen = index;
+      document.querySelectorAll('.app-screen').forEach(s => s.style.display = 'none');
+      document.querySelectorAll('.app-tab').forEach(t => {
+        t.style.backgroundColor = 'transparent';
+        t.style.color = '#D7CCC8';
+        t.style.borderColor = '#D7CCC8';
+      });
+      
+      document.querySelectorAll('.app-screen')[index].style.display = 'block';
+      document.getElementById(`tab-${index}`).style.backgroundColor = '#C8A96E';
+      document.getElementById(`tab-${index}`).style.color = '#3E2723';
+      document.getElementById(`tab-${index}`).style.borderColor = '#C8A96E';
+    }
+
+    lucide.createIcons();
+
+    // Element SDK
+    const defaultConfig = {
+      hero_title: 'WASTRA-CHAIN ID',
+      hero_subtitle: 'THE IMPLEMENTATION OF BLOCKCHAIN TECHNOLOGY IN BOGOR BATIK TO ENHANCE INDONESIAN TEXTILES COMPETITIVENESS IN THE GLOBAL MARKET.',
+      vision_text: 'To position Bogor Batik as a globally recognised cultural product, empowered by cutting-edge blockchain technology that guarantees authenticity and builds lasting consumer trust.',
+      mission_text: 'To develop and implement a blockchain-based certification system that records the complete production journey of each Bogor Batik piece, ensuring transparency, protecting artisan heritage, and enhancing competitiveness in the global textile market.',
+      school_address: 'SMA IBNU HAJAR BOARDING SCHOOL',
+      contact_email: '4the.winsofficial@gmail.com'
+    };
+
+    function applyConfig(c) {
+      const g = (k) => c[k] || defaultConfig[k];
+      document.getElementById('hero-title').textContent = g('hero_title');
+      document.getElementById('hero-subtitle').textContent = g('hero_subtitle');
+      document.getElementById('vision-text').textContent = g('vision_text');
+      document.getElementById('mission-text').textContent = g('mission_text');
+      document.getElementById('school-address').textContent = g('school_address');
+      document.getElementById('contact-email').textContent = g('contact_email');
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => applyConfig(config),
+        mapToCapabilities: (config) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => {
+          const g = (k) => config[k] || defaultConfig[k];
+          return new Map([
+            ['hero_title', g('hero_title')],
+            ['hero_subtitle', g('hero_subtitle')],
+            ['vision_text', g('vision_text')],
+            ['mission_text', g('mission_text')],
+            ['school_address', g('school_address')],
+            ['contact_email', g('contact_email')]
+          ]);
+        }
+      });
+    }
+  </script>
+ </body>
+</html>
